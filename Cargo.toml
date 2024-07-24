@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "easy to change your git user name and user email"
+repository = "https://github.com/sunsunmonkey/gitu"
+readme = "README.md"
 
 [dependencies]
 clap = { version = "4.5.9", features = ["cargo"] }
