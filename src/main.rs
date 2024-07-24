@@ -1,7 +1,7 @@
 use std::{fs::File, io::Write};
 
 use clap::command;
-use guser::{handle_write, read_config, set_git_config, set_text, Config, FILE_PATH};
+use guser::{get_config_path, handle_write, read_config, set_git_config, set_text, Config};
 use inquire::{InquireError, Select};
 
 fn main() {
@@ -29,14 +29,14 @@ fn handle_add() {
             let mut content: Vec<Config> = serde_json::from_str(&content).unwrap();
             content.push(config);
 
-            let mut file = File::create(FILE_PATH).unwrap();
+            let mut file = File::create(&get_config_path()).unwrap();
             let content = serde_json::to_string(&content).unwrap();
 
             handle_write(file.write_all(content.as_bytes()));
         }
 
         None => {
-            let mut file = File::create(FILE_PATH).unwrap();
+            let mut file = File::create(&get_config_path()).unwrap();
             let content = serde_json::to_string(&vec![config]).unwrap();
 
             handle_write(file.write_all(content.as_bytes()));

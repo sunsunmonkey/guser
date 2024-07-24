@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::io::{self, Read};
 use std::path::Path;
+use std::path::PathBuf;
 use std::process::Command;
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -11,8 +12,6 @@ pub struct Config {
     pub name: String,
     pub alias: String,
 }
-
-pub static FILE_PATH: &str = "./config.json";
 
 pub fn set_text(message: &str, default: Option<&str>) -> String {
     let mut text = Text::new(message).with_validator(required!("This field is required"));
@@ -27,9 +26,9 @@ pub fn set_text(message: &str, default: Option<&str>) -> String {
 
 pub fn read_config() -> Option<String> {
     // 检查文件是否存在
-    if Path::new(FILE_PATH).exists() {
+    if Path::new(&get_config_path()).exists() {
         // 如果文件存在，读取文件内容
-        let mut file = File::open(FILE_PATH).unwrap();
+        let mut file = File::open(&get_config_path()).unwrap();
         let mut content = String::new();
         let _ = file.read_to_string(&mut content);
         Some(content)
@@ -56,5 +55,36 @@ pub fn handle_write(file_write: io::Result<()>) {
     match file_write {
         Ok(_) => println!("\n✅ add success"),
         Err(_) => println!("\n❌ add failed"),
+    }
+}
+
+pub fn get_config_path() -> PathBuf {
+    #[cfg(target_os = "macos")]
+    {
+        let home_dir = std::env::var("HOME").expect("Could not find home directory");
+        let mut path = PathBuf::from(home_dir);
+        path.push(".guserc");
+        path
+    }
+
+    #[cfg(target_os = "windows")]
+    {
+        let mut path = PathBuf::from("C:\\");
+        path.push(".guserc");
+        path
+    }
+
+    #[cfg(target_os = "linux")]
+    {
+        let mut path = PathBuf::from("/var/");
+        path.push(".guserc");
+        path
+    }
+
+    #[cfg(target_os = "unix")]
+    {
+        let mut path = PathBuf::from("/var/");
+        path.push(".guserc");
+        path
     }
 }
