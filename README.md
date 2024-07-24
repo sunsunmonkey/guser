@@ -19,3 +19,7 @@ to switch your git user name and user email
 ```shell
 guser switch
 ```
+
+## TODO
+
+better error handle

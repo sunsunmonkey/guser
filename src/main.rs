@@ -75,7 +75,7 @@ fn handle_switch() {
             }
         }
         None => {
-            println!("No config, you can run `gitu add` to add a new config");
+            println!("No config, you can run `guser add` to add a new config");
         }
     }
 }
