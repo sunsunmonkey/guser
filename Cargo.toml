@@ -2,6 +2,11 @@
 name = "gitu"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "easy to change your git user name and user email"
 
 [dependencies]
 clap = { version = "4.5.9", features = ["cargo"] }
+inquire = "0.7.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
