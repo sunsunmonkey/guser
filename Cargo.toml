@@ -1,10 +1,12 @@
 [package]
-name = "gitu"
+name = "guser"
 version = "0.1.0"
+authors = ["sunsunmonkey <2933201543@qq.com>"]
 edition = "2021"
 license = "MIT"
 description = "easy to change your git user name and user email"
 repository = "https://github.com/sunsunmonkey/gitu"
+homepage = "https://github.com/sunsunmonkey/gitu"
 readme = "README.md"
 
 [dependencies]

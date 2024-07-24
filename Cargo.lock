@@ -164,7 +164,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "gitu"
+name = "guser"
 version = "0.1.0"
 dependencies = [
  "clap",

@@ -1,7 +1,7 @@
 use std::{fs::File, io::Write};
 
 use clap::command;
-use gitu::{handle_write, read_config, set_git_config, set_text, Config, FILE_PATH};
+use guser::{handle_write, read_config, set_git_config, set_text, Config, FILE_PATH};
 use inquire::{InquireError, Select};
 
 fn main() {
