@@ -2,7 +2,7 @@
 
 easy to change your git user name and user email
 
-## get start
+## Get start
 
 ```shell
 cargo install guser
