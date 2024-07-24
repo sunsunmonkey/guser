@@ -5,8 +5,8 @@ authors = ["sunsunmonkey <2933201543@qq.com>"]
 edition = "2021"
 license = "MIT"
 description = "easy to change your git user name and user email"
-repository = "https://github.com/sunsunmonkey/gituser"
-homepage = "https://github.com/sunsunmonkey/gituser"
+repository = "https://github.com/sunsunmonkey/guser"
+homepage = "https://github.com/sunsunmonkey/guser"
 readme = "README.md"
 
 [dependencies]
