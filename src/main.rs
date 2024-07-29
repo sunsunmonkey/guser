@@ -64,7 +64,7 @@ fn handle_switch() {
                 .collect();
 
             let ans: Result<String, InquireError> =
-                Select::new("What's your favorite fruit?", options).prompt();
+                Select::new("Switch your git user:", options).prompt();
 
             match ans {
                 Ok(choice) => {

@@ -1,6 +1,6 @@
 [package]
 name = "guser"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["sunsunmonkey <2933201543@qq.com>"]
 edition = "2021"
 license = "MIT"
